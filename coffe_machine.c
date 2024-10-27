@@ -219,17 +219,21 @@ void displayIngredientsAndSales() {
 }
 
 void replenishIngredients() {
+    int k= 1;
     srand(time(0));
     int replenish_choice;
-    printf("Choose the ingredient to replenish:\n");
-    printf("1. Coffee beans\n");
-    printf("2. Water\n");
-    printf("3. Milk\n");
-    printf("4. Chocolate syrup\n");
-    printf("Enter your choice: ");
-    scanf("%d", &replenish_choice);
+    while (k==1)
+    {   
+        printf("Choose the ingredient to replenish:\n");
+        printf("1. Coffee beans\n");
+        printf("2. Water\n");
+        printf("3. Milk\n");
+        printf("4. Chocolate syrup\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &replenish_choice);
 
-    switch (replenish_choice) {
+        switch (replenish_choice) {
         case 1:
             threshhold_cb = (rand() % 101) + 100; // Random value between 100 and 200
             printf("Coffee beans have been replenished.\n");
@@ -246,9 +250,15 @@ void replenishIngredients() {
             threshhold_cs = (rand() % 101) + 100; 
             printf("Chocolate syrup has been replenished.\n");
             break;
+        case 5:
+            printf("Exiting\n");
+            k=0;
+            break;
         default:
             printf("Invalid input\n");
+        }
     }
+    
 }
 
 void changeCoffeePrice() {
